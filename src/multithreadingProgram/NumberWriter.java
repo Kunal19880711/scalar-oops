@@ -9,6 +9,12 @@ public class NumberWriter implements Runnable{
 
     @Override
     public void run() {
-        System.out.println("Number: " + number + " written by " + Thread.currentThread().getName());
+        try {
+            Thread.sleep(10);
+            System.out.println("Number: " + number + " written by " + Thread.currentThread().getName());
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 }
